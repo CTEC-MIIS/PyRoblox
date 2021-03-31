@@ -1,7 +1,10 @@
-from .get_friends import friends
-
-import os 
+import os
 import requests
 
-session = requests.Session()
-session.params = {}
+sess = requests.Session()
+sess.params = {}
+
+from .get_friends import friends
+from .get_groups import groups
+from .groups_edgelist import group_edgelist
+from .friends_edgelist import friend_edgelist

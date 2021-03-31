@@ -5,10 +5,7 @@
 
 
 import os
-cwd = os.getcwd()
-os.chdir("C:\\Users\\Alex\\pyroblox")
-from . import session
-os.chdir(cwd)
+from . import sess
 
 
 # In[11]:
@@ -19,12 +16,8 @@ class friends(object):
         self.id = id
     def info(self):
         path = 'https://friends.roblox.com/v1/users/{}/friends'.format(self.id)
-        response = session.get(path)
+        response = sess.get(path)
         return response.json()
 
 
 # In[ ]:
-
-
-
-

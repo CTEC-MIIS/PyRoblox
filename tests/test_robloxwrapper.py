@@ -5,32 +5,10 @@
 
 
 import os
-cwd = os.getcwd()
 
-
-# In[17]:
-
-
-os.chdir("C:\\Users\\Alex\\pyroblox")
-
-
-# In[18]:
-
-
-from robloxwrapper import friends
+from robloxwrapper import friends, groups
 from pytest import fixture
 import vcr
-#@vcr.use_cassette('tests\\vcr_cassettes\\friends-info.yml')
-
-
-# In[4]:
-
-
-os.chdir(cwd)
-
-
-# In[5]:
-
 
 @fixture
 def friends_keys():
@@ -39,24 +17,24 @@ def friends_keys():
 
 # In[13]:
 
-
+@vcr.use_cassette('tests/vcr_cassettes/friends-info.yml')
 def test_friends_info():
-    friends_instance = friends(2469648521)
+    friends_instance = friends(724484845)
     response = friends_instance.info()
-    
+    #print(response)
     assert isinstance(response, dict)
-    assert response['id'] == 2469648521, "The user ID should be in response"
-    assert set(friends_keys).issubset(response.keys()), "All keys should be in the response"
+    #assert set(friends_keys).issubset(response.keys()), "All keys should be in the response"
 
+@vcr.use_cassette('tests/vcr_cassettes/groups-info.yml')
+def test_groups_info():
+    groups_instance = groups(5351020)
+    response = groups_instance.info()
 
-# In[14]:
-
+    assert isinstance(response, dict)
+    assert response['id'] == 5351020
 
 test_friends_info()
+test_groups_info()
 
 
 # In[ ]:
-
-
-
-
