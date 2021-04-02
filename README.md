@@ -23,7 +23,7 @@ This library provides a function that will generate a handful of csvs given a gr
 * Member-Favorited Asset edgelist for all users
 * Asset info for all favorited assets
 
-This function needs a Roblox Security cookie. When logged into a Roblox account, go to developer tools and find the ROBLOSECURITY cookie. Format like this: `{".ROBLOSECURITY": "alphanumericstring"}`
+This function needs a Roblox Security cookie. When logged into a Roblox account, go to roblox.com, open developer tools, and find the ROBLOSECURITY cookie. Format like this: `{".ROBLOSECURITY": "alphanumericstring"}`
 
 ```
 from PyRoblox import robloxwrapper as rw
