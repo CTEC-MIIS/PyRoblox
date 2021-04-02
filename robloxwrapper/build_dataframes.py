@@ -11,7 +11,6 @@ def build_dataframes(group_id, cookie):
     allies = pd.DataFrame(el['allies'], columns =['From', 'To'])
     enemies = pd.DataFrame(el['enemies'], columns =['From', 'To'])
     group_ids = set(list(allies['To']) + list(allies['From']) + list(enemies["To"]) + list(enemies["From"]))
-    print(group_ids)
     big_list = []
     print("Getting group info... length is: ", len(group_ids))
     for i in list(group_ids):
@@ -23,7 +22,6 @@ def build_dataframes(group_id, cookie):
             try:
 
                 socials = groups(i).social_links(cookies = cookie)
-                print(socials.keys())
                 if 'data' in socials.keys():
                 # print(socials)
                     socials = socials['data']
@@ -34,13 +32,10 @@ def build_dataframes(group_id, cookie):
                 else:
                     social_list = []
                 group_info = groups(i).info()
-                print("errors" in group_info.keys())
                 if "errors" in group_info.keys():
                     time.sleep(60)
                     group_info = groups(i).info()
 
-                print(list(group_info.values()) + social_list)
-                print(social_list)
                 big_list.append(list(group_info.values()) + social_list)
             except:
                 time.sleep(60)
@@ -79,9 +74,7 @@ def build_dataframes(group_id, cookie):
     for i in user_ids:
         while(True):
             try:
-                print(i)
                 favorites_l = user_games(i).favorites_list()
-                print(len(favorites_l['data']))
                 if len(favorites_l['data']) > 0:
                     for j in favorites_l['data']:
                         favorites_el.append([i, j['id']])
@@ -89,9 +82,7 @@ def build_dataframes(group_id, cookie):
                             games_dict[j['id']] = [j['name'], j['description'], j['creator']['id'], j['created'], j['placeVisits']]
                     cursor = favorites_l['nextPageCursor']
                     favorites_l = favorites_l = user_games(i).favorites_list(cursor=cursor)
-                    print(len(games_dict.keys()))
             except:
-                print("sleeping...")
                 time.sleep(60)
                 continue
             break
