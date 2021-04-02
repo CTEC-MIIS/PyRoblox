@@ -25,7 +25,10 @@ This library provides a function that will generate a handful of csvs given a gr
 
 This function needs a Roblox Security cookie. When logged into a Roblox account, go to developer tools and find the ROBLOSECURITY cookie. Format like this: `{".ROBLOSECURITY": "alphanumericstring"}`
 
-```build_dataframes(group_id, {".ROBLOSECURITY": "alphanumericstring"})```
+```
+from PyRoblox import robloxwrapper as rw
+rw.build_dataframes(group_id, {".ROBLOSECURITY": "alphanumericstring"})
+```
 
 ### User Functions
 
