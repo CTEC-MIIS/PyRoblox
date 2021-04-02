@@ -50,7 +50,9 @@ rw.group_info(group_id)
 
 The `group_edgelist` function also returns full edgelists of a group's ally and enemy affiliations. 
 
-```rw.group_edgelist(group_id)```
+```
+rw.group_edgelist(group_id)
+```
 
 This function returns a dictionary with keys `allies` and `enemies`, where the values are list of lists representing the edgelists of the two-step network from the initial group ID.
 
