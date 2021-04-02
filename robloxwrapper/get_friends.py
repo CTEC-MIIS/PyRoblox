@@ -18,6 +18,9 @@ class friends(object):
         path = 'https://friends.roblox.com/v1/users/{}/friends'.format(self.id)
         response = sess.get(path)
         return response.json()
-
+    def user_info(self):
+        path = 'https://users.roblox.com/v1/users/{}'.format(self.id)
+        response = sess.get(path)
+        return response.json()
 
 # In[ ]:
