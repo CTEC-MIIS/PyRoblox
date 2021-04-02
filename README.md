@@ -6,28 +6,38 @@ Roblox's API does not require a developer account (or an account at all). Its en
 
 ## Installation
 
-```git clone https://github.com/CTEC-MIIS/PyRoblox```
-
-```cd PyRoblox```
-
-```pip install .```
+```git clone https://github.com/CTEC-MIIS/PyRoblox
+cd PyRoblox
+pip install .```
 
 ## Usage
+### Master Function
+This library provides a function that will generate a handful of csvs given a group ID:
+* Ally edgelists 
+* Enemy edgelists
+* Group info
+* Member-group edgelists for all groups in the Ally and Enemy lists
+* User info for all members
+* Member-Favorited Asset edgelist for all users
+* Asset info for all favorited assets
+
+This function needs a Roblox Security cookie. When logged into a Roblox account, go to developer tools and find the ROBLOSECURITY cookie. Format like this: `{".ROBLOSECURITY": "alphanumericstring"}`
+
+```build_dataframes(group_id, {".ROBLOSECURITY": "alphanumericstring"})```
+
 ### User Functions
 
 To get user info, including created date, username, and description, use the following:
 
-```from PyRoblox import robloxwrapper as rw```
-
-```rw.user_info(user_id)```
+```from PyRoblox import robloxwrapper as rw
+rw.user_info(user_id)```
 
 ### Group Functions
 
 To get group info, use the following:
 
-```from PyRoblox import robloxwrapper as rw```
-
-```rw.group_info(group_id)```
+```from PyRoblox import robloxwrapper as rw
+rw.group_info(group_id)```
 
 The `group_edgelist` function also returns full edgelists of a group's ally and enemy affiliations. 
 
