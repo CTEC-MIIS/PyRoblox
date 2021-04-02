@@ -2,7 +2,7 @@
 Python wrapper for the Roblox API.
 
 ## Notes
-Roblox's API does not require a developer account (or an account at all). Its endpoints are exposed to the public, and its rate limits are generous. Please use common sense when using this so we can continue researching Roblox data in such an open capacity.
+Roblox's API does not require a developer account. Its endpoints are exposed to the public, and its rate limits are generous. Please use common sense when using this so we can continue researching Roblox data in such an open capacity.
 
 ## Installation
 
