@@ -6,7 +6,8 @@ Roblox's API does not require a developer account (or an account at all). Its en
 
 ## Installation
 
-```git clone https://github.com/CTEC-MIIS/PyRoblox
+```
+git clone https://github.com/CTEC-MIIS/PyRoblox
 cd PyRoblox
 pip install .
 ```
@@ -30,7 +31,8 @@ This function needs a Roblox Security cookie. When logged into a Roblox account,
 
 To get user info, including created date, username, and description, use the following:
 
-```from PyRoblox import robloxwrapper as rw
+```
+from PyRoblox import robloxwrapper as rw
 rw.user_info(user_id)
 ```
 
@@ -38,7 +40,8 @@ rw.user_info(user_id)
 
 To get group info, use the following:
 
-```from PyRoblox import robloxwrapper as rw
+```
+from PyRoblox import robloxwrapper as rw
 rw.group_info(group_id)
 ```
 
@@ -52,6 +55,7 @@ This function returns a dictionary with keys `allies` and `enemies`, where the v
 
 The `friend_edgelist` function returns a list of lists that represents the edgelist of the two-step network from the initial user ID. 
 
-```from PyRoblox import robloxwrapper as rw
+```
+from PyRoblox import robloxwrapper as rw
 rw.friend_edgelist(user_id)
 ```
