@@ -67,7 +67,7 @@ def build_dataframes(group_id, cookie):
                 time.sleep(60)
                 continue
             break
-    user_info_df = pd.DataFrame(big_list, columns = ["description", "created", "isBanned", "id", "name", "displayName"])
+    user_info_df = pd.DataFrame(big_list, columns = ["description", "created", "isBanned", "externalAppDisplayName", "id", "name", "displayName"])
     favorites_el = []
     games_dict = {}
     favorites_l = []
