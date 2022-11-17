@@ -41,7 +41,7 @@ def build_dataframes(group_id, cookie):
                 time.sleep(60)
                 continue
             break
-    group_info_df = pd.DataFrame(big_list, columns = ["id", "name", "description", "owner", "shout", "memberCount", "isBuildersClubOnly", "publicEntryAllowed", "isLocked", "social1", "social2"])
+    group_info_df = pd.DataFrame(big_list, columns = ["id", "name", "description", "owner", "shout", "memberCount", "isBuildersClubOnly", "publicEntryAllowed", "hasVerifiedBadge"])
     group_info_df.to_csv("group_info_{}.csv".format(group_id))
     group_el = []
     print("Groups to collect: ", len(group_ids))
