@@ -35,13 +35,13 @@ def build_dataframes(group_id, cookie):
                 if "errors" in group_info.keys():
                     time.sleep(60)
                     group_info = groups(i).info()
-
                 big_list.append(list(group_info.values()) + social_list)
             except:
                 time.sleep(60)
                 continue
             break
-    group_info_df = pd.DataFrame(big_list, columns = ["id", "name", "description", "owner", "shout", "memberCount", "isBuildersClubOnly", "publicEntryAllowed", "isLocked", "social1", "social2"])
+ 
+    group_info_df = pd.DataFrame(big_list, columns = ["id", "name", "description", "owner", "shout", "memberCount", "isBuildersClubOnly", "publicEntryAllowed", "isLocked", "hasVerifiedBadge", "social1", "social2"])
     group_info_df.to_csv("group_info_{}.csv".format(group_id))
     group_el = []
     print("Groups to collect: ", len(group_ids))
@@ -73,7 +73,7 @@ def build_dataframes(group_id, cookie):
                 time.sleep(60)
                 continue
             break
-    user_info_df = pd.DataFrame(big_list, columns = ["description", "created", "isBanned", "Unknown", "id", "name", "displayName"])
+    user_info_df = pd.DataFrame(big_list, columns = ["description", "created", "isBanned", "externalAppDisplayName", "hasVerifiedBadge", "id", "name", "displayName"])
     favorites_el = []
     games_dict = {}
     favorites_l = []
