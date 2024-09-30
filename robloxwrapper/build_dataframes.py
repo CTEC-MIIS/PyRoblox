@@ -32,6 +32,7 @@ def build_dataframes(group_id, cookie):
                 else:
                     social_list = []
                 group_info = groups(i).info()
+                group_info = dict((k, group_info[k]) for k in (['id', 'name', 'description', 'owner', 'shout', 'memberCount', 'isBuildersClubOnly', 'publicEntryAllowed', 'hasVerifiedBadge']))
                 if "errors" in group_info.keys():
                     time.sleep(60)
                     group_info = groups(i).info()
@@ -41,7 +42,7 @@ def build_dataframes(group_id, cookie):
                 continue
             break
  
-    group_info_df = pd.DataFrame(big_list, columns = ["id", "name", "description", "owner", "shout", "memberCount", "isBuildersClubOnly", "publicEntryAllowed", "isLocked", "hasVerifiedBadge"])
+    group_info_df = pd.DataFrame(big_list, columns = ["id", "name", "description", "owner", "shout", "memberCount", "isBuildersClubOnly", "publicEntryAllowed", "hasVerifiedBadge"])
     group_info_df.to_csv("group_info_{}.csv".format(group_id))
     group_el = []
     print("Groups to collect: ", len(group_ids))
